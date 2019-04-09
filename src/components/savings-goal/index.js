@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import * as actions from './constants';
 import { formatNumber } from '../../lib/utils';
+import PieChart from 'react-minimal-pie-chart';
 import './styles.css';
 
 class SavingsGoal extends React.Component {
@@ -34,12 +35,32 @@ class SavingsGoal extends React.Component {
     this.setState({
       submittedNewSavingsGoal: formatNumber(this.state.storingNewSavingsGoal)
     });
-    
   }
   
+  renderPieChart = () => {
+    const { submittedNewSavingsGoal } = this.state;
+    const { newSavings } = this.props;
+    let leftToGo = submittedNewSavingsGoal - newSavings;
+    let savedSoFar = newSavings;
+    if (submittedNewSavingsGoal) {
+
+      // console.log('1 ', newSavings);
+      // console.log('2 ', submittedNewSavingsGoal);
+      console.log('3 ', typeof leftToGo);
+      console.log('4 ', typeof savedSoFar);
+      return (
+        <PieChart
+          data={[
+            { title: 'Left To Go', value: leftToGo, color: '#E38627' },
+            { title: 'Your Savings', value: savedSoFar, color: '#C13C37' },
+          ]}
+        />
+      );
+    }
+  }
   render() {
 
-    const { isLoading, error, accountBalance, savingsGoal, newSavings } = this.props;
+    const { isLoading, error, accountBalance, newSavings } = this.props;
     const { submittedNewSavingsGoal } = this.state;
 
     console.log('accountBalance is ', accountBalance);
@@ -71,24 +92,7 @@ class SavingsGoal extends React.Component {
         </>
         }
 
-        <div className="table-container">
-          <table className="table">
-            <thead>
-              <tr>
-                <th scope="col">£/GBP</th>
-                <th scope="col">Balance</th>
-                <th scope="col">Source</th>
-                <th scope="col">IN / OUT</th>
-                <th scope="col">Date</th>
-              </tr>
-            </thead>
-            <tbody>
-           
-            </tbody>
-          </table>
-        
-        </div>
-
+        {this.renderPieChart()}
       </div>
     )
   }
