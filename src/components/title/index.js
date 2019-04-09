@@ -3,7 +3,7 @@ import './styles.css';
 
 const Title = ({ text }) => (
     <div className="title">
-        <h4>{text}</h4>
+        <h2>{text}</h2>
     </div>
 )
 

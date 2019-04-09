@@ -81,7 +81,6 @@ export function* workerHomepageLoading() {
 
 }
 
-
 export function* watcherNewSavingsGoal() {
     yield takeLatest('CREATE_NEW_SAVINGS_GOAL', workerNewSavingsGoal);
 }

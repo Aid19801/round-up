@@ -53,7 +53,7 @@ class Transactions extends React.Component {
       this.setState({ figureToBeAddedToSavings: newTotalFormatted });
       return this.removeEntryFromTransactions(row.id); 
     } else {
-      return alert('You round up in-bound payments')
+      return alert('You cant round-up in-bound payments')
     }
   }
 

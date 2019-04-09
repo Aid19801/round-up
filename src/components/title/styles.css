@@ -1,6 +1,5 @@
-.title {
-    color: grey;
+div.title h2 {
+    color: white;
     width: 300px;
-    margin: 20px;
     padding: 20px;
 }

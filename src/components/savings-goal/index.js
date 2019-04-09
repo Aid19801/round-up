@@ -30,8 +30,7 @@ class SavingsGoal extends React.Component {
     })
   }
 
-  submitNewSavingsGoal = () => {
-    
+  submitNewSavingsGoal = () => {   
     this.setState({
       submittedNewSavingsGoal: formatNumber(this.state.storingNewSavingsGoal)
     });
@@ -46,8 +45,8 @@ class SavingsGoal extends React.Component {
       return (
         <PieChart
           data={[
-            { title: 'Left To Go', value: leftToGo, color: '#E38627' },
-            { title: 'Your Savings', value: savedSoFar, color: '#C13C37' },
+            { title: 'Left To Go', value: leftToGo, color: 'rgba(189, 195, 199, 1)' },
+            { title: 'Your Savings', value: savedSoFar, color: 'rgba(46, 49, 49, 1)' },
           ]}
         />
       );
