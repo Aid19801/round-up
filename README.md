@@ -1,4 +1,7 @@
-#Round up
+# Round Up App
+
+
+# Setup
 
 `git clone`
 
@@ -9,7 +12,7 @@
 `yarn start`
 
 
-App Flow (top down):
+# App Flow (top down):
 
 Index.js (Redux )
 App.js contains the Header and Homepage.

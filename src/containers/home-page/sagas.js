@@ -31,15 +31,15 @@ export function* workerHomepageLoading() {
           },
     })
     .then(res => {
-        console.log('res is ', res.status);
+        // console.log('res is ', res.status);
         return res.json()
     })
     .then(json => {
-        console.log('transactions back: ', json);
+        // console.log('transactions back: ', json);
         transactions = json;
     })
     .catch(err => {
-        console.log('api fetching error: ', err)
+        // console.log('api fetching error: ', err)
         transactions = {};
         transactionsError = err;
     });
@@ -60,19 +60,19 @@ export function* workerHomepageLoading() {
         headers: {
             "Accept": "application/json",
             "Content-Type": "application/json",
-            "Authorization": "Bearer KafJaxWu4LdGvUU6xumaXdKepBElB7PDVWaLGdVBFWF25Tbm5i6PUC5v5k2hdt0W"
+            "Authorization": `Bearer ${ACCESS_TOKEN}`
         },
     })
     .then(res => {
-        console.log('res is ', res.status);
+        // console.log('res is ', res.status);
         return res.json()
     })
     .then(json => {
-        console.log('accountBalance back: ', json);
+        // console.log('accountBalance back: ', json);
         accountBalance = json;
     })
     .catch(err => {
-        console.log('api fetching error: ', err)
+        // console.log('api fetching error: ', err)
         accountBalance = null;
         accountBalanceError = err;
     });
