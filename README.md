@@ -28,11 +28,16 @@ When you click submit, it will generate a pie-chart. Hovering over the sections 
 
 # App Flow (top down):
 
-Index.js (Redux )
+Index.js (Redux)
+
 🔽
+
 App.js contains the Header and Homepage.
+
 🔽
+
 Homepage is where the app-proper begins.
+
 🔽
 
 The App is split into Containers and Components
@@ -140,17 +145,17 @@ Meanwhile, `this.renderPieChart()` only renders a pie-chart if a goal has been s
 So by this point, we've selected our rows to round-up, we've transfered them to the savings area, we've advised a savings goal and we have a UI representation of where our savings sit against the overall saving target.
 
 # Styling
-I've used Bootstrap for a responsive grid layout.
+- I've used Bootstrap for a responsive grid layout.
 
-If I had more time i'd probably have worked on better responsiveness.
+- If I had more time i'd probably have worked on better responsiveness.
 
-Material-UI wouldve been good for a nice layout too. Was more focused (as always) on API/data though.
+- Material-UI wouldve been good for a nice layout too. Was more focused (as always) on API/data though.
 
 # Problems, Issues, Dramas...
 
-I lost an hour this afternoon to the API going down.
+- I lost an hour this afternoon to the API going down.
 
-I've also had some serious problems with proxying. You'll see my Redux Sagas (homepage/sagas.js) pull in the transactions and balance APIs fine. But for some reason going for a 3rd failed consistently. I tried every way i know of to get around it (CORS Chrome extensions, CRA proxy, using proxy-anywhere heroku app...). But lost a lot of time trying to get the `workerNewSavingsGoal()` saga happening.
+- I've also had some serious problems with proxying. You'll see my Redux Sagas (homepage/sagas.js) pull in the transactions and balance APIs fine. But for some reason going for a 3rd failed consistently. I tried every way i know of to get around it (CORS Chrome extensions, CRA proxy, using proxy-anywhere heroku app...). But lost a lot of time trying to get the `workerNewSavingsGoal()` saga happening.
 
 
 # Integrity / Typing
