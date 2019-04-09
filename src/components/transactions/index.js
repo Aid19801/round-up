@@ -45,11 +45,16 @@ class Transactions extends React.Component {
   }
 
   addToSavings = row => {
-    let changeToAdd = roundUp(row.amount);
-    let newTotalUnformatted = this.state.figureToBeAddedToSavings + changeToAdd;
-    let newTotalFormatted = parseFloat(newTotalUnformatted.toFixed(2));
-    this.setState({ figureToBeAddedToSavings: newTotalFormatted });
-    this.removeEntryFromTransactions(row.id); 
+    console.log(row)
+    if (row.direction === 'OUTBOUND') {
+      let changeToAdd = roundUp(row.amount);
+      let newTotalUnformatted = this.state.figureToBeAddedToSavings + changeToAdd;
+      let newTotalFormatted = parseFloat(newTotalUnformatted.toFixed(2));
+      this.setState({ figureToBeAddedToSavings: newTotalFormatted });
+      return this.removeEntryFromTransactions(row.id); 
+    } else {
+      return alert('You round up in-bound payments')
+    }
   }
 
   removeEntryFromTransactions = id => {

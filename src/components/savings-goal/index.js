@@ -118,10 +118,8 @@ SavingsGoal.propTypes = {
     componentLoaded: PropTypes.func.isRequired,
     componentFailed: PropTypes.func.isRequired,
     createNewSavingsGoal: PropTypes.func.isRequired,
-    // accountBalance: PropTypes.object,
     isLoading: PropTypes.bool.isRequired,
     savingsGoal: PropTypes.number,
-    // error: PropTypes.object,
 
 }
 
