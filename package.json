@@ -1,5 +1,6 @@
 {
   "name": "round-up",
+  "proxy": "https://api-sandbox.starlingbank.com",
   "engines": {
     "node": "10.15.0",
     "npm": "6.4.1"

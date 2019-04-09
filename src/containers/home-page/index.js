@@ -1,8 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import * as actions from './constants';
-import styles from './styles.css';
+import { Title, Transactions, SavingsGoal } from '../../components';
+
+import './styles.css';
 
 class Home extends React.Component {
   constructor() {
@@ -20,26 +23,34 @@ class Home extends React.Component {
 
   
   render() {
+    const { isLoading } = this.props;
+    if (isLoading) {
+
+    }
 
 
     return (
       <div className="home-page-container">
+        <Title text="Round Up" />
 
-        <div className="home-page-title">
-          <h1>Round Up</h1>
+        <div className="container">
+          <div className="row">
+            { isLoading && <h4>Loading...</h4> }
+            { !isLoading && (
+              <>
+              <Transactions /> <SavingsGoal /> 
+              </>
+              )
+            }
+          </div>
         </div>
-
-        <div className="body-section">
-        
-        </div>
-
       </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
-//   email: state.signinPage.email,
+  isLoading: state.savings.isLoading,
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -48,6 +59,10 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
+Home.propTypes = {
+  pageLoading: PropTypes.func.isRequired,
+  pageLoaded: PropTypes.func.isRequired,
+}
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
