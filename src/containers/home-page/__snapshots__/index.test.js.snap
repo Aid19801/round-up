@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Homepage matches the snapshot 1`] = `
+<div
+  className="home-page-container"
+>
+  <div
+    className="title"
+  >
+    <h4>
+      Round Up
+    </h4>
+  </div>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm-6 transactions-container"
+      >
+        <h4>
+          Add To Savings: £
+          0
+        </h4>
+        <button
+          onClick={[Function]}
+        >
+          transfer =&gt; 
+        </button>
+        <div
+          className="table-container"
+        >
+          <table
+            className="table"
+          >
+            <thead>
+              <tr>
+                <th
+                  scope="col"
+                >
+                  £/GBP
+                </th>
+                <th
+                  scope="col"
+                >
+                  Balance
+                </th>
+                <th
+                  scope="col"
+                >
+                  Source
+                </th>
+                <th
+                  scope="col"
+                >
+                  IN / OUT
+                </th>
+                <th
+                  scope="col"
+                >
+                  Date
+                </th>
+              </tr>
+            </thead>
+            <tbody />
+          </table>
+        </div>
+      </div>
+       
+      <div
+        className="col-sm-6 savings-container"
+      >
+        <h4>
+          Savings Goal: £
+          0
+        </h4>
+        <h4>
+          current savings: £
+          0
+        </h4>
+        <input
+          className="goal-input"
+          name="savingsGoal"
+          onChange={[Function]}
+          placeholder="enter your savings goal here..."
+          type="text"
+        />
+        <button
+          onClick={[Function]}
+        >
+          submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

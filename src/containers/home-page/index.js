@@ -35,7 +35,7 @@ class Home extends React.Component {
 
         <div className="container">
           <div className="row">
-            { isLoading && <h4>Loading...</h4> }
+            { isLoading && <h4 className="loading">Loading...</h4> }
             { !isLoading && (
               <>
               <Transactions /> <SavingsGoal /> 

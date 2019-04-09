@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Transactions matches the snapshot 1`] = `
+<div
+  className="col-sm-6 transactions-container"
+>
+  <h4>
+    Add To Savings: £
+    0
+  </h4>
+  <button
+    onClick={[Function]}
+  >
+    transfer =&gt; 
+  </button>
+  <div
+    className="table-container"
+  >
+    <table
+      className="table"
+    >
+      <thead>
+        <tr>
+          <th
+            scope="col"
+          >
+            £/GBP
+          </th>
+          <th
+            scope="col"
+          >
+            Balance
+          </th>
+          <th
+            scope="col"
+          >
+            Source
+          </th>
+          <th
+            scope="col"
+          >
+            IN / OUT
+          </th>
+          <th
+            scope="col"
+          >
+            Date
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
+  </div>
+</div>
+`;

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Savings Goal matches the snapshot 1`] = `
+<div
+  className="col-sm-6 savings-container"
+>
+  <h4>
+    Savings Goal: £
+    0
+  </h4>
+  <h4>
+    current savings: £
+    0
+  </h4>
+  <input
+    className="goal-input"
+    name="savingsGoal"
+    onChange={[Function]}
+    placeholder="enter your savings goal here..."
+    type="text"
+  />
+  <button
+    onClick={[Function]}
+  >
+    submit
+  </button>
+</div>
+`;

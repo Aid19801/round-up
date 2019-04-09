@@ -43,11 +43,6 @@ class SavingsGoal extends React.Component {
     let leftToGo = submittedNewSavingsGoal - newSavings;
     let savedSoFar = newSavings;
     if (submittedNewSavingsGoal) {
-
-      // console.log('1 ', newSavings);
-      // console.log('2 ', submittedNewSavingsGoal);
-      console.log('3 ', typeof leftToGo);
-      console.log('4 ', typeof savedSoFar);
       return (
         <PieChart
           data={[
@@ -66,7 +61,7 @@ class SavingsGoal extends React.Component {
     console.log('accountBalance is ', accountBalance);
 
     if (isLoading) {
-      return <h4>loading...</h4>
+      return <h4 className="loading">loading...</h4>
     }
     
     if (error) {
