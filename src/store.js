@@ -18,6 +18,7 @@ const store = createStore(RootReducer,
 function* rootSaga() {
     yield all([
        sagas.watcherHomepageLoading(),
+       sagas.watcherNewSavingsGoal(),
     ])
 }
 

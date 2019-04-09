@@ -1,15 +1,11 @@
-import { takeLatest, put, call } from 'redux-saga/effects';
+import { takeLatest, put } from 'redux-saga/effects';
 import * as actions from './constants';
 
 const ACCESS_TOKEN = process.env.REACT_APP_ACCESS_TOKEN;
-// const PROXY = "https://cors-anywhere.herokuapp.com";
-// const STARLING_API = 'https://api-sandbox.starlingbank.com';
+const STARLING_API = 'https://api-sandbox.starlingbank.com';
 const TRANSACTIONS_ENDPOINT = 'api/v1/transactions';
 const BALANCE_ENDPOINT = 'api/v1/accounts/balance';
-// export const CREATE_SAVINGS_GOAL = '/api/v2/account/{accountUid}/savings-goals';
-// export const TRANSFER_MONEY_TO_SAVINGS_GOAL = '/api/v2/account/{accountUid}/savings-goals/{savingsGoalUid}
-// /add-money/{transferUid}';
-
+const CREATE_SAVINGS_GOAL_ENDPOINT = 'api/v2/account/10e5b0ce-256b-43f1-bd8e-3851db969259/savings-goals';
 
 export function* watcherHomepageLoading() {
     yield takeLatest(actions.HOME_PAGE_LOADING, workerHomepageLoading);
@@ -21,7 +17,7 @@ export function* workerHomepageLoading() {
     // 1. Transactions
     let transactions = {};
     let transactionsError;
-    yield fetch(`${TRANSACTIONS_ENDPOINT}`, {
+    yield fetch(`/${TRANSACTIONS_ENDPOINT}`, {
         method: "GET",
         mode: "cors",
         headers: {
@@ -53,8 +49,8 @@ export function* workerHomepageLoading() {
     // 2. Balance
     let accountBalance = null;
     let accountBalanceError;
-    yield put({ type: 'SAVINGS_GOAL_LOADING' });
-    yield fetch(`${BALANCE_ENDPOINT}`, {
+    yield put({ type: 'SAVINGS_API_LOADING' });
+    yield fetch(`/${BALANCE_ENDPOINT}`, {
         method: "GET",
         mode: "cors",
         headers: {
@@ -78,26 +74,34 @@ export function* workerHomepageLoading() {
     });
 
     accountBalance ? 
-    yield put({ type: 'SAVINGS_GOAL_LOADED', accountBalance })
+    yield put({ type: 'SAVINGS_API_SUCCESS', accountBalance })
     :
-    yield put({ type: 'SAVINGS_FAILED', error: accountBalanceError })
+    yield put({ type: 'SAVINGS_API_FAIL', error: accountBalanceError })
 
 
 }
 
-   // make call to /transactions API
-   // make call to /balance API
 
-   // then pass both to homepage via props
-   // because homepage container is where
-   // the two shall meet.
+export function* watcherNewSavingsGoal() {
+    yield takeLatest('CREATE_NEW_SAVINGS_GOAL', workerNewSavingsGoal);
+}
 
-   // in Homepage container there will be methods
-   // to work out roundups, add them to balance etc.
-   // then the results of that passed down to <SavingsGoal />
+export function* workerNewSavingsGoal({ newSavingsGoal }) {
+        // console.log('savings goal through ', newSavingsGoal);
+        // let hasUpdated = false;
+        // yield fetch(`${STARLING_API}/api/v2/account/10e5b0ce-256b-43f1-bd8e-3851db969259/savings-goals`)
+        //     .then(res => {
+        //         console.log('response is ', res.status);
+        //         if (res.status === 200 || res.status === 204) {
+        //             hasUpdated = true;
+        //         } else {
+        //             console.log('faaaaaail');
+        //             hasUpdated = false;
+        //         }
+        //     })
 
-
-//    Accept: application/json
-
-// Authorization: Bearer {yourAccessTokenFromAbove}
-// User-Agent: Your Name
+        // hasUpdated ? yield put({ type: 'NEW_SAVINGS_GOAL_SUCCESS' })
+        // :
+        // yield put ({ type: 'NEW_SAVINGS_GOAL_FAIL' })
+        return;
+}

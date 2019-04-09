@@ -57,6 +57,10 @@ class Transactions extends React.Component {
     let arr = transactions.filter(each => each.id !== id);
     this.setState({ transactions: arr });
   }
+
+  transferToSavings = () => {
+    this.props.transferToSavings(this.state.figureToBeAddedToSavings);
+  }
   
   render() {
     const { isLoading, error } = this.props;
@@ -73,6 +77,7 @@ class Transactions extends React.Component {
       <div className="col-sm-6 transactions-container">
 
       <h4>Add To Savings: £{this.state.figureToBeAddedToSavings}</h4>
+      <button onClick={this.transferToSavings}>transfer => </button>
 
         <div className="table-container">
           <table className="table">
@@ -96,7 +101,7 @@ class Transactions extends React.Component {
                         <td>{each.direction}</td>
                         <td>{moment(each.created).format('DD/MM/YYYY HH:MM')}</td>
                       </tr>
-                      </React.Fragment>
+                    </React.Fragment>
                   )
                 })
               }
@@ -104,9 +109,6 @@ class Transactions extends React.Component {
           </table>
         
         </div>
-
-
-        
 
       </div>
     )
@@ -122,6 +124,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   componentLoading: () => dispatch({ type: actions.TRANSACTIONS_LOADING }),
   componentLoaded: () => dispatch({ type: actions.TRANSACTIONS_LOADED }),
+  transferToSavings: (num) => dispatch({ type: actions.TRANSFER_TO_SAVINGS, figure: num})
 });
 
 Transactions.propTypes = {

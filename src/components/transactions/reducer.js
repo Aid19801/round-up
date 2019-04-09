@@ -4,6 +4,7 @@ const initialState = {
     isLoading: false,
     error: null,
     transactions: {},
+    newSavings: 0,
 }
 
 export const transactionsReducer = (state = initialState, action) => {
@@ -35,6 +36,13 @@ export const transactionsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 transactions: action.transactions,
+            }
+            break;
+
+        case actions.TRANSFER_TO_SAVINGS:
+            return {
+                ...state,
+                newSavings: action.figure
             }
             break;
 

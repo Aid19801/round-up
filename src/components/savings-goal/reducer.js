@@ -4,6 +4,7 @@ const initialState = {
     isLoading: false,
     error: null,
     accountBalance: 0,
+    savingsGoal: 0,
 }
 
 export const savingsReducer = (state = initialState, action) => {
@@ -19,7 +20,6 @@ export const savingsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
-                accountBalance: action.accountBalance,
             }
             break;
 
@@ -36,6 +36,52 @@ export const savingsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 accountBalance: action.accountBalance,
+            }
+            break;
+
+        case actions.SAVINGS_API_LOADING:
+            return {
+                ...state,
+                isLoading: true,
+            }
+            break;
+
+        case actions.SAVINGS_API_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+                accountBalance: action.accountBalance,
+            }
+            break;
+
+        case actions.SAVINGS_API_FAIL:
+            return {
+                ...state,
+                isLoading: false,
+                error: action.error,
+            }
+            break;
+
+        case actions.CREATE_NEW_SAVINGS_GOAL:
+            return {
+                ...state,
+                isLoading: true,
+                savingsGoal: action.newSavingsGoal,
+            }
+            break;
+
+        case actions.NEW_SAVINGS_GOAL_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+            }
+            break;
+
+        case actions.NEW_SAVINGS_GOAL_FAIL:
+            return {
+                ...state,
+                isLoading: false,
+                error: action.error
             }
             break;
 
