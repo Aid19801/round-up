@@ -25,7 +25,25 @@ class SavingsGoal extends React.Component {
 
     return (
       <div className="col-sm-6 savings-container">
-        i am a column 6
+        <h4>Savings Goal: £</h4>
+        <div className="table-container">
+          <table className="table">
+            <thead>
+              <tr>
+                <th scope="col">£/GBP</th>
+                <th scope="col">Balance</th>
+                <th scope="col">Source</th>
+                <th scope="col">IN / OUT</th>
+                <th scope="col">Date</th>
+              </tr>
+            </thead>
+            <tbody>
+           
+            </tbody>
+          </table>
+        
+        </div>
+
       </div>
     )
   }

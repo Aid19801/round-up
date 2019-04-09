@@ -1,4 +1,6 @@
 .title {
-    color: red;
-    border: 1px solid red;
+    color: grey;
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
 }
